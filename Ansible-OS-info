@@ -1,0 +1,12 @@
+---
+ - name: Build test
+   hosts: 192.168.0.31
+   become_method: sudo
+   gather_facts: false
+   tasks:
+     - name: Operating System info
+       dbug: msg="{{ item }}"
+       with_items:
+       - "{{ ansible_distribution }}"
+       - "{{ ansible_distribution_version }}"
+       - "{{ ansible_distribution_major_version }}"
